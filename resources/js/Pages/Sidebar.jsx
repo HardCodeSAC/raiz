@@ -88,7 +88,8 @@ const Sidebar = () => {
                             <li className="pc-item pc-hasmenu">
                                 <a href="" className="pc-link"><span className="pc-micon"><i data-feather="menu"></i></span><span className="pc-mtext">Menu levels</span><span className="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                                 <ul className="pc-submenu">
-                                    <li className="pc-item"><a className="pc-link" href="">Menu Level 2.1</a></li>
+                                    <li className="pc-item"><a className="pc-link" href="">Menu Level 2.1</a>
+                                    </li>
                                     <li className="pc-item pc-hasmenu">
                                         <a href="" className="pc-link">Menu level 2.2<span className="pc-arrow"><i data-feather="chevron-right"></i></span></a>
                                         <ul className="pc-submenu">
@@ -97,13 +98,11 @@ const Sidebar = () => {
                                         </ul>
                                     </li>
                                     <li className="pc-item pc-hasmenu">
-                                        <li className="pc-item pc-hasmenu">
-                                            <a href="" className="pc-link">Menu level 2.3<span className="pc-arrow"><i data-feather="chevron-right"></i></span></a>
-                                            <ul className="pc-submenu">
-                                                <li className="pc-item"><a className="pc-link" href="">Menu level 3.1</a></li>
-                                                <li className="pc-item"><a className="pc-link" href="">Menu level 3.2</a></li>
-                                            </ul>
-                                        </li>
+                                        <a href="" className="pc-link">Menu level 2.3<span className="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                                        <ul className="pc-submenu">
+                                            <li className="pc-item"><a className="pc-link" href="">Menu level 3.1</a></li>
+                                            <li className="pc-item"><a className="pc-link" href="">Menu level 3.2</a></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
