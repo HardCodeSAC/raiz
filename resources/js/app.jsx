@@ -1,3 +1,6 @@
+import "../css/app.css";
+import "../css/style.css";
+import "../css/customizer.css";
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'

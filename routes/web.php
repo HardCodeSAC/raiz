@@ -22,3 +22,6 @@ Route::get('/Sidebar', function () {
 Route::get('/Dashboard', function () {
     return Inertia::render('Dashboard');
 });
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
