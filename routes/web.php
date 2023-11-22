@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/prueba', function () {
     return Inertia::render('Prueba');
 });
+Route::get('/login', function () {
+    return Inertia::render('Login');
+});
