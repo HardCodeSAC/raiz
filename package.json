@@ -12,6 +12,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.4.2",
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/react": "^1.0.0",
         "@vitejs/plugin-react": "^3.1.0",

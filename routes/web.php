@@ -16,6 +16,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Test');
 });
-Route::get('/prueba', function () {
-    return Inertia::render('Prueba');
+Route::get('/Sidebar', function () {
+    return Inertia::render('Sidebar');
+});
+Route::get('/Dashboard', function () {
+    return Inertia::render('Dashboard');
 });
