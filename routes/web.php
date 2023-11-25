@@ -13,14 +13,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Test');
-});
-Route::get('/Sidebar', function () {
+Route::get('/Home', function () {
     return Inertia::render('Sidebar');
-});
-Route::get('/Dashboard', function () {
-    return Inertia::render('Dashboard');
 });
 Route::get('/login', function () {
     return Inertia::render('Login');

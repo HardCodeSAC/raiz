@@ -12390,6 +12390,8 @@ pre[class*="language-"] {
     top: 0;
     bottom: 0;
     z-index: 1026;
+    overflow-y: auto;
+    
 }
 
 .pc-sidebar ul {
@@ -12513,6 +12515,7 @@ pre[class*="language-"] {
 
 .pc-sidebar .pc-navbar > .pc-item.active > .pc-link, .pc-sidebar .pc-navbar > .pc-item:focus > .pc-link, .pc-sidebar .pc-navbar > .pc-item:hover > .pc-link {
     background: #161c25;
+    
 }
 
 .pc-sidebar .pc-hasmenu.pc-trigger > .pc-submenu {
@@ -12652,6 +12655,7 @@ body:not(.minimenu) .pc-sidebar .pc-submenu .pc-submenu > .pc-item:before {
     .navbar-overlay .pc-sidebar.pc-over-menu-active .navbar-wrapper {
         position: relative;
         z-index: 5;
+        
     }
 
     .navbar-overlay .pc-sidebar:not(.pc-over-menu-active) {
@@ -12692,6 +12696,7 @@ body:not(.minimenu) .pc-sidebar .pc-submenu .pc-submenu > .pc-item:before {
     left: 280px;
     right: 0;
     z-index: 1025;
+    
 }
 
 .pc-header ul {

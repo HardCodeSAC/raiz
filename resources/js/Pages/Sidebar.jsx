@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Dashboard from './Dashboard';
+import Cabecera from './Cabecera';
 import Test from './Test';
+
 const Sidebar = () => {
+    
     return (
         <div>
-            <nav className="pc-sidebar ">
+            <nav className="pc-sidebar">
                 <div className="navbar-wrapper">
                     <div className="m-header">
                     </div>
@@ -110,8 +113,11 @@ const Sidebar = () => {
                         </ul>
                     </div>
                 </div>
+                
             </nav>
-            <Test />
+            <Cabecera />
+            <Dashboard />
+            
         </div>
 
     )

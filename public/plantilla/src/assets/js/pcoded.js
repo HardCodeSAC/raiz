@@ -2,7 +2,7 @@
 var flg = "0";
 $(document).ready(function() {
     // feather icon start
-    feather.replace();
+    //feather.replace();
     // feather icon end
     // remove pre-loader start
     setTimeout(function() {
@@ -248,8 +248,8 @@ $(window).resize(function() {
 });
 $(window).scroll(function() {});
 $(window).on('load', function() {
-    $('[data-toggle="tooltip"]').tooltip();
-    $('[data-toggle="popover"]').popover();
+    //$('[data-toggle="tooltip"]').tooltip();
+    //$('[data-toggle="popover"]').popover();
 });
 // active menu item list start
 if (!$('body').hasClass('minimenu')) {
