@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Dashboard from './Dashboard';
-import Cabecera from './Cabecera';
+import Ruta from './Ruta';
+import Cabecera from './TopBar';
 import Test from './Test';
 
 const Sidebar = () => {
@@ -113,11 +113,7 @@ const Sidebar = () => {
                         </ul>
                     </div>
                 </div>
-                
             </nav>
-            <Cabecera />
-            <Dashboard />
-            
         </div>
 
     )
