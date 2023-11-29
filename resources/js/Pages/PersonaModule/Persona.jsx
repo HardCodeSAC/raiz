@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import TopBar from '../TopBar';
-import Sidebar from '../Sidebar';
+import AppLayout from "@/Layouts/AppLayout";
 
 export default function Persona({ Persona }) {
 
     return (
         <div>
-            <Sidebar />
-            <TopBar />
+            <AppLayout />
             <div className="pc-container">
                 <div className="pcoded-content">
                     <div className="page-header">

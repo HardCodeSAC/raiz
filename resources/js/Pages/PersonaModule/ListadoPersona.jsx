@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import Cabecera from '../TopBar';
-import Sidebar from '../Sidebar';
+import AppLayout from "@/Layouts/AppLayout";
 
 export default function ListadoPersona({ Persona }) {
 
     return (
         <div>
-            <Sidebar />
-            <Cabecera />
+            <AppLayout />
             <div className="pc-container">
                 <div className="pcoded-content">
                     <div className="page-header">
