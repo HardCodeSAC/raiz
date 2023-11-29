@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsuarioController;
 use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,14 @@ Route::get('/Home', function () {
 Route::get('/login', function () {
     return Inertia::render('Login');
 });
-Route::get('/register', function () {
-    return Inertia::render('Register');
-});
+// Route::get('/register', function () {
+//     return Inertia::render('Register');
+// });
+Route::get('/registrar', [LoginController::class, 'mostrarRegistro'])->name('registro.mostrar');
+
+/******************************** USUARIOS ************************************/
+Route::get('/usuarios', function () {
+    return Inertia::render('Usuarios/Listar');
+})->name('usuarios.listar');
+Route::get('/usuarios/listado', [UsuarioController::class, 'index'])->name('usuarios.listado');
+/***************************************************************************/

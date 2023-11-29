@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const Register = () => {
+export default function Register({ vara }) {
+// const Register = () => {
     return (
         <div className="auth-wrapper">
             <div className="auth-content">
@@ -9,7 +10,7 @@ const Register = () => {
                         <div className="col-md-12">
                             <div className="card-body">
                                 <img src="assets/images/logo-dark.svg" alt="" className="img-fluid mb-4"/>
-                                <h4 className="mb-3 f-w-400">Sign up</h4>
+                                <h4 className="mb-3 f-w-400">{vara}</h4>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i data-feather="user"></i></span>
@@ -44,5 +45,3 @@ const Register = () => {
         </div>
     )
 }
-
-export default Register
