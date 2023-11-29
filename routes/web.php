@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsuarioController;
 use Inertia\Inertia;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\PersonaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,10 @@ Route::get('/usuarios', function () {
 })->name('usuarios.listar');
 Route::get('/usuarios/listado', [UsuarioController::class, 'index'])->name('usuarios.listado');
 /***************************************************************************/
+
+Route::get('/aaa', [TestController::class, 'index'])->name('test-index');
+
+#SECCION PERSONAS
+
+Route::get('/persona', [PersonaController::class, 'index'])->name('persona');
+Route::get('/ListadoPersona', [PersonaController::class, 'ListadoPersona'])->name('ListadoPersona');

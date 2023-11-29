@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-const Test = () => {
-    
+export default function Test({datosDesdeLaravel}) {
+
     return (
+
         <div className="row">
         <div className="col-xl-6 col-md-12">
             <div className="card flat-card">
@@ -14,7 +15,7 @@ const Test = () => {
                             </div>
                             <div className="col-sm-8 text-md-center">
                                 <h5>1000</h5>
-                                <span>Customers</span>
+                                <span>{datosDesdeLaravel.titulo}</span>
                             </div>
                         </div>
                     </div>
@@ -392,5 +393,3 @@ const Test = () => {
     </div>
     )
 }
-
-export default Test
