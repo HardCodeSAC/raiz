@@ -109,7 +109,6 @@ return new class extends Migration
             $table->id();
             $table->integer('movimiento_id')->nullable();
             $table->integer('articulo_id')->nullable();
-            $table->integer('articulo_id')->nullable();
             $table->integer('cantidad')->nullable();
             $table->string('observacion')->nullable();
             $table->string('estado')->nullable();
