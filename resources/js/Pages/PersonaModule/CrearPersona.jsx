@@ -1,7 +1,77 @@
 import React, { useState } from 'react';
 import AppLayout from "@/Layouts/AppLayout";
+import Box from '@mui/material/Box';
+import FormHelperText from '@mui/material/FormHelperText';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+import {
+    Container,
+    TextField,
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem,
+    Checkbox,
+    FormGroup,
+    FormControlLabel,
+    Button,
+} from '@mui/material';
 
-export default function Persona({ Persona }) {
+
+export default function CrearPersona() {
+    
+    const guardarPersona = async () => {
+        let formData = new FormData(document.getElementById('bank-form'));
+        formData.append('_token', $('#primer_nombre').val());
+        $.ajax({
+            url: '/entidad_persona/guardar',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                //$('#RegistroExitoso').modal('show');
+                // swal alert
+
+                Swal.fire({
+                    title: 'El registro fue generado con éxito.',
+                    text: 'Es momento de comenzar a trabajar.',
+                    type: 'success',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+
+                //$("#bank-form #name").val('');
+            },
+            error: function (error) {
+                var errors = error.responseJSON;
+                console.log(errors);
+                Swal.fire({
+                    title: 'Error',
+                    text: errors,
+                    type: 'error',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        });
+    }
+    
+    const [datosPersona, setDatosPersona] = useState({
+        primer_nombre: '',
+        segundo_nombre: '',
+        apellido_paterno: '',
+        apellido_materno: '',
+        identificador: '',
+        tipo_doc: '',
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí puedes realizar acciones con los datos
+        console.log('Datos enviados:', datosPersona);
+    };
     return (
         <div>
             <AppLayout />
@@ -15,7 +85,7 @@ export default function Persona({ Persona }) {
                                         <h5 className="m-b-10">Persona</h5>
                                     </div>
                                     <ul className="breadcrumb">
-                                        <li className="breadcrumb-item"><a href="/ListadoPersona">Listado Persona</a></li>
+                                        <li className="breadcrumb-item"><a href="/entidad_persona">Listado Persona</a></li>
                                         <li className="breadcrumb-item">Crear Persona</li>
                                     </ul>
                                 </div>
@@ -28,59 +98,93 @@ export default function Persona({ Persona }) {
                                 <h5>FORMULARIO PARA NUEVA PERSONA</h5>
                             </div>
                             <div className='card-body'>
-                                <form>
-                                    <div className="form-group">
-                                        <h5>DATOS PERSONALES</h5>
-                                        <hr />
-                                        <div className="form-group">
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <label for="exampleInputEmail1">Tipo de Identificador</label>
-                                                    <select className="form-control" id="tipoIdentificador">
-                                                        <option value="">Selecciona tipo identificador</option>
-                                                        <option value="dni" selected >DNI</option>
-                                                        <option value="ce">Carnet Extranjeria</option>
-                                                        <option value="pasaporte">Pasaporte</option>
-                                                        <option value="rut">RUT</option>
-                                                        <option value="otro">Otro</option>
-                                                    </select>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label for="exampleInputEmail1">Identificador</label>
-                                                    <input type="text" className="form-control" id="identificador" placeholder="Ingrese su DNI" value={Persona.Identificador} />
-                                                    <small id="emailHelp" className="form-text text-muted">El Identificador es unico para cada persona</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label for="exampleInputEmail1">Nombre de la persona</label>
-                                            <div className="row">
+                                <Container maxWidth="100%">
+                                    <h5>DATOS PERSONALES</h5>
+                                    <form onSubmit={handleSubmit}>
+                                        <Grid container spacing={2}>
+                                            
+                                            <Grid item xs={6}>
+                                                <FormControl fullWidth variant="outlined" margin="normal">
+                                                    <InputLabel>Tipo de Identificador</InputLabel>
+                                                    <Select
+                                                        label="Tipo de Identificador"
+                                                        name="tipo_doc"
+                                                        value={datosPersona.tipo_doc}
+                                                    >
+                                                        <MenuItem value="DNI">DNI</MenuItem>
+                                                        <MenuItem value="CE">Carnet Extranjeria</MenuItem>
+                                                        <MenuItem value="PASAPORTE">Pasaporte</MenuItem>
+                                                        <MenuItem value="RUT">RUT</MenuItem>
+                                                        <MenuItem value="OTRO">Otro</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                        label="Identificador"
+                                                        variant="outlined"
+                                                        fullWidth
+                                                        margin="normal"
+                                                        name="identificador"
+                                                        value={datosPersona.identificador}
+                                                        
+                                                    />
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    label="Primer Nombre"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    name="primer_nombre"
+                                                    id="primer_nombre"
+                                                    value={datosPersona.primer_nombre}
+                                                    
+                                                />
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    label="Segundo Nombre"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    name="segundo_nombre"
+                                                    
+                                                    value={datosPersona.segundo_nombre}
+                                                    
+                                                />
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    label="Apellido Paterno"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    name="apellido_paterno"
+                                                    value={datosPersona.apellido_paterno}
+                                                    
+                                                />
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <TextField
+                                                    label="Apellido Materno"
+                                                    variant="outlined"
+                                                    fullWidth
+                                                    margin="normal"
+                                                    name="apellido_materno"
+                                                    
+                                                    value={datosPersona.apellido_materno}
+                                                    
+                                                />
+                                            </Grid>
 
-                                                <div className="col-md-6">
-                                                    <input type="text" className="form-control" id="nombres" aria-describedby="emailHelp" placeholder="Ingrese su nombre" value={Persona.Nombre} />
-                                                    <small id="emailHelp" className="form-text text-muted">Ingrese su primer nombre</small>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <input type="text" className="form-control" id="nombres" aria-describedby="emailHelp" placeholder="Ingrese su nombre" value={Persona.SegundoNombre} />
-                                                    <small id="emailHelp" className="form-text text-muted">Ingrese su primer nombre</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label for="exampleInputEmail1">Apellidos de la persona</label>
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <input type="text" className="form-control" id="apellidos" aria-describedby="emailHelp" placeholder="Ingrese su apellido paterno" value={Persona.ApellidoPaterno} />
-                                                    <small id="emailHelp" className="form-text text-muted">Ingrese su apellido paterno</small>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <input type="text" className="form-control" id="apellidos" aria-describedby="emailHelp" placeholder="Ingrese su apellido materno" value={Persona.ApellidoMaterno} />
-                                                    <small id="emailHelp" className="form-text text-muted">Ingrese su apellido materno</small>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </Grid>
+                                        <Button type="submit" variant="contained" color="primary">
+                                            Guardar
+                                        </Button>
+                                    </form>
+                                </Container>
 
-                                    </div>
                                     <div className="form-group">
                                         <h5>CONTACTOS TELEFONICOS</h5>
                                         <hr />
@@ -201,7 +305,7 @@ export default function Persona({ Persona }) {
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                
                             </div>
                         </div>
                     </div>

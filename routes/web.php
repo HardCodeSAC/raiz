@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use Inertia\Inertia;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\EntidadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +42,9 @@ Route::get('/aaa', [TestController::class, 'index'])->name('test-index');
 
 Route::get('/persona', [PersonaController::class, 'index'])->name('persona');
 Route::get('/ListadoPersona', [PersonaController::class, 'ListadoPersona'])->name('ListadoPersona');
+
+#SECCION ENTIDAD
+Route::get('/entidad_persona', [EntidadController::class, 'index'])->name('entidad_persona');
+Route::get('/entidad_persona/resultados', [EntidadController::class, 'result'])->name('entidad_persona_resultados');
+Route::get('/entidad_persona/crear', [EntidadController::class, 'create'])->name('entidad_persona_crear');
+Route::get('/entidad_persona/guardar', [EntidadController::class, 'store'])->name('entidad_persona_guardar');

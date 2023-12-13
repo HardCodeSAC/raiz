@@ -17,14 +17,9 @@ import "../../public/plantilla/dist/assets/css/plugins/prism-coy.css";
 //import "../../public/plantilla/dist/assets/js/pages/google-maps.js";
 //import "../../public/plantilla/dist/assets/js/pcoded.js";
 //import "../../public/plantilla/dist/assets/js/uikit.js";
-import "../../public/plantilla/src/assets/js/pcoded.js";
-import "../../public/plantilla/src/assets/js/uikit.js";
+
 //import "../../public/plantilla/src/assets/js/vendor-all.js"; (LO MATA)
 //import "../../public/plantilla/dist/assets/js/vendor-all.js"; (LO MATA)
-
-import * as Alias from '../../public/plantilla/dist/assets/js/pages/chart-apex.js';
-import * as Alias2 from '../../public/plantilla/dist/assets/js/pages/dashboard-sale.js';
-import * as Alias3 from '../../public/plantilla/dist/assets/js/pages/google-maps.js';
 
 
 
@@ -34,6 +29,7 @@ import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers'
 import Chart from "react-apexcharts";
+
 
 createInertiaApp({
     resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`,import.meta.glob('./Pages/**/*.jsx')),

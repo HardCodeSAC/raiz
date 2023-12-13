@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('entidad', function (Blueprint $table) {
             $table->id();
             $table->string('tipo_entidad');
@@ -108,7 +109,6 @@ return new class extends Migration
         Schema::create('movimiento_detalle', function (Blueprint $table) {
             $table->id();
             $table->integer('movimiento_id')->nullable();
-            $table->integer('articulo_id')->nullable();
             $table->integer('articulo_id')->nullable();
             $table->integer('cantidad')->nullable();
             $table->string('observacion')->nullable();
